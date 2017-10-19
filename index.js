@@ -8,11 +8,9 @@ function strike(letter) {
     if (bell) {
         console.log(bell);
         jQuery.get(STRIKE_URL + bell.i);
-
-        bell.element.fadeIn(100).fadeOut(100);
+        bell.element.fadeOut(100).fadeIn(100);
     }
 };
-
 
 for (var i = 0; i < NUM_BELLS; i++) {
     let key = String.fromCharCode(97 + i)
@@ -26,7 +24,6 @@ for (var i = 0; i < NUM_BELLS; i++) {
     element.click(() => { strike(key) });
     CONTAINER.append(element);
 }
-
 
 
 Rx.Observable.fromEvent(document, "keypress").subscribe((e) => {
